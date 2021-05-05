@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-const Login = (props) => {
+const GetStarted = (props) => {
   return (
     <Container>
       <Content>
         <CTA>
           <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
-          <SignUp>Get All Here</SignUp>
+          <SignUp>Get Started Here</SignUp>
           <Description>
             {" "}
             As of 02/05/2021 Axel is Unofficially not Open for Business as this
@@ -19,6 +19,18 @@ const Login = (props) => {
             Brand.
           </Description>
         </CTA>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
+        />
+        <a
+          class="github-fork-ribbon left-bottom"
+          href="https://url.to-your.repo"
+          data-ribbon="Fork me on GitHub"
+          title="Fork me on GitHub"
+        >
+          Fork me on GitHub
+        </a>
         <BgImage />
       </Content>
     </Container>
@@ -54,6 +66,20 @@ const BgImage = styled.div`
   background-repeat: no-repeat;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/Images/MovieGrid.png");
+
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(
+    248.66deg,
+    #000000 0%,
+    rgba(0, 0, 0, 0.0551181) 64.58%,
+    rgba(0, 0, 0, 0) 72.92%
+  );
   position: absolute;
   top: 0;
   right: 0;
@@ -98,9 +124,22 @@ const SignUp = styled.a`
   letter-spacing: 1.5px;
   font-size: 18px;
   padding: 16.5px 0;
+  transition: all 0.2s ease 0s;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 
   &:hover {
     background-color: #0483ee;
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.95);
   }
 `;
 
@@ -116,4 +155,4 @@ const Description = styled.p`
 
 // const mapDispatchToProps = {};
 
-export default Login;
+export default GetStarted;
