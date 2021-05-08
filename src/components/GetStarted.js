@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { Container, Content, BgImage } from "./styles";
 
 const GetStarted = (props) => {
   return (
@@ -24,7 +25,7 @@ const GetStarted = (props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
         />
         <a
-          class="github-fork-ribbon left-bottom"
+          class="github-fork-ribbon right-bottom"
           href="https://url.to-your.repo"
           data-ribbon="Fork me on GitHub"
           title="Fork me on GitHub"
@@ -36,56 +37,6 @@ const GetStarted = (props) => {
     </Container>
   );
 };
-
-const Container = styled.section`
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 100vh;
-`;
-
-const Content = styled.section`
-  margin-bottom: 10vw;
-  width: 100%;
-  position: relative;
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 80px 80px;
-  height: 100%;
-`;
-
-const BgImage = styled.div`
-  height: 100%;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/Images/MovieGrid.png");
-
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 0))
-  );
-  mask-image: linear-gradient(
-    248.66deg,
-    #000000 0%,
-    rgba(0, 0, 0, 0.0551181) 64.58%,
-    rgba(0, 0, 0, 0) 72.92%
-  );
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
-`;
 
 const CTA = styled.div`
   margin-bottom: 2vw;
