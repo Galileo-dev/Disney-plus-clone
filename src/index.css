@@ -19,7 +19,7 @@ a:active {
 }
 
 body {
-  background-color: #040714;
+  background-color: linear-gradient(180deg, #3d272a 63.54%, #d65939 100%);
   color: #f9f9f9;
 
   font-family: Avenir-Roman, sans-serif;

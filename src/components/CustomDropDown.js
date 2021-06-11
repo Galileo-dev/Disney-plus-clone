@@ -7,7 +7,6 @@ const DropDownContainer = styled("div")`
   margin: 0 auto;
   margin-left: 0.5em;
   margin: 10px;
-  font-size: 1rem;
   font-weight: 700;
   color: white;
   display: inline-block;
@@ -40,6 +39,7 @@ const ListItem = styled("li")`
   list-style: none;
   text-align: left;
   padding: 5px;
+  font-size: 100%;
 
   &:hover {
     background-color: #2d2d2d;
@@ -54,9 +54,15 @@ const CustomDropDown = (props) => {
   console.log(props.options[0].image);
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = (value) => () => {
+  const AvailbeToSelect = props.options;
+
+  const onOptionClicked = (value, key) => () => {
+    var valueAndKey = [];
+    valueAndKey.push(...value);
+    valueAndKey.push(key);
     setSelectedOption(value);
     setIsOpen(false);
+    console.log(key);
     console.log(selectedOption);
   };
 
@@ -64,15 +70,18 @@ const CustomDropDown = (props) => {
     <DropDownContainer>
       <DropDownHeader isOpen={isOpen} onClick={toggling}>
         {console.log(selectedOption)}
-        {selectedOption.image && <OptionIcon src={selectedOption.image} />}
+        {selectedOption.image && <OptionImg src={selectedOption.image} />}
         {selectedOption.name}
       </DropDownHeader>
       {isOpen && (
         <DropDownListContainer>
           <DropDownList>
-            {props.options.map((option) => (
-              <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                {option.image && <OptionIcon src={option.image} />}
+            {props.options.map((option, key) => (
+              <ListItem
+                onClick={onOptionClicked(option, key)}
+                key={Math.random()}
+              >
+                {option.image && <OptionImg src={option.image} />}
                 {option.name}
               </ListItem>
             ))}
@@ -87,6 +96,16 @@ const OptionIcon = styled.img`
   height: 2em;
   vertical-align: middle;
   margin-right: 5px;
+`;
+
+const OptionImg = styled.img`
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
 `;
 
 export default CustomDropDown;
